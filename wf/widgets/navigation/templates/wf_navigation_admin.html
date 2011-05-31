@@ -1,0 +1,7 @@
+<ul id="nav" class="navigation page-list clearfix">
+	{% for nav_page in wf_navigation %}
+		<li id="{{ nav_page.id }}" class="page-item no-nesting">
+			<a href="/admin/pages{{ nav_page.url }}/">{{ nav_page.title }}</a>
+		</li>
+	{% endfor %}
+</ul>

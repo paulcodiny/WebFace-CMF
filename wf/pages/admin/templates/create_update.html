@@ -1,0 +1,47 @@
+{extends "base.html"}
+
+{block "add_to_head"}
+<script type="text/javascript" src="wf/includes/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="wf/includes/swampy_browser/sb.js"></script>
+{/block}
+
+{block "main"}
+    <div id="middle">
+        <div class="block">
+            <div class="header">
+                <h2>
+                    {foreach $breadcrumbs bread_page}
+                        {if $.foreach.default.last}
+                            <a href="{$bread_page.url}">{$bread_page.name}</a> |
+                        {/if}
+                    {/foreach}
+                    Редактирование записи
+                </h2>
+            </div>
+
+
+            <form action="" method="post" id="edit-form" enctype="multipart/form-data">
+                <div class="content">
+                    <div class="wrap">
+                        {if $pg_id}
+                            <input type="hidden" name="id" value="{$pg_id}" />
+                        {/if}
+                        <dl>
+                            {$output}
+                        </dl>
+                        <br />
+                    </div><!-- .wrap -->
+                </div><!-- .content -->
+                <ul class="object-actions">
+                    <li><a href="#" class="button" onclick="document.getElementById('edit-form').submit(); return false;">Сохранить<span><!-- --></span></a></li>
+                    <li><a href="#" class="button">Сохранить и продолжить<span><!-- --></span></a></li>
+                </ul>
+
+                <a href="javascript:history.back();"><img src="{$gconfig.media_backend}img/btns/cancel.png" alt="Отменить" /></a>
+
+            </form>
+
+        </div><!-- ./block -->
+
+    </div><!-- #middle -->
+{/block}

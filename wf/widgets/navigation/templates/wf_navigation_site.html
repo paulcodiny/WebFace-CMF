@@ -1,0 +1,7 @@
+<ul id="nav" class="navigation page-list clearfix">
+	{% for id, page in navigation %}
+		<li id="ele-{{ page.id }}" class="page-item no-nesting">
+			<a href="/admin/pages/{{ page.link }}/">{{ page.name }}</a>
+		</li>
+	{% endfor %}
+</ul>

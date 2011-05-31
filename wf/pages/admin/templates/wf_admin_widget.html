@@ -1,0 +1,26 @@
+{% extends "wf_layout.html" %}
+
+{% block content %}
+	<div id="middle">
+		<div class="left-part">
+			<div class="block">
+				<div class="header">
+					<h2>Все страницы сайта ??</h2>
+					<a href="admin/pages/new" id="add-page-link" class="action add">Добавить</a>
+				</div>
+				<div class="content">
+					<div class="wrap">
+						{{ widget_form|raw }}
+					</div><!-- .wrap -->
+				</div><!-- .content -->
+				<div id="dialog" title="Добавить страницу" style="display: none;">
+					<form action="/admin/pages/new" id="add_page_form" method="post">
+						<label for="id_link">Адрес</label>
+						<input type="text" id="id_link" name="link" />
+					</form>
+				</div>
+			</div><!-- .block -->
+		</div><!-- .left-part -->
+
+	</div><!-- #middle -->
+{% endblock %}

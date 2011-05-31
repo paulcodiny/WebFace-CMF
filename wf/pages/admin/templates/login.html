@@ -1,0 +1,33 @@
+{extends "base.html"}
+{block "navigation"}{/block}
+{block "breadcrumbs"}{/block}
+{block "admin_info"}{/block}
+
+{block "main"}
+    <div class="login-wrap">
+        <p class="greeting">Добро пожаловать!</p>
+        <form action="" id="login-form" method="post">
+            <fieldset>
+                <input type="hidden" name="act" value="admin_login" />
+
+                <table>
+                    <tr>
+                        <th><label for="id_login">Логин:</label></th>
+                        <td><input type="text" id="id_login" name="admin_login" /></td>
+                    </tr>
+                    <tr>
+                        <th><label for="id_password">Пароль:</label></th>
+                        <td><input type="password" id="id_password" name="admin_pass" /></td>
+                    </tr>
+                </table>
+
+                <div class="actions">
+                    <a href="javascript:window.history(-1);" class="cancel">Отменить</a>
+                    <a href="#" class="button login-btn" onclick="document.getElementById('login-form').submit(); return false;">Войти<span><!-- --></span></a>
+                </div>
+
+                <input type="submit" name="send" value="Войти" />
+            </fieldset>
+        </form>
+    </div><!-- .login-wrap -->
+{/block}

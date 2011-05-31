@@ -1,0 +1,9 @@
+{% extends base_layout %}
+
+{% block content %}
+	{% autoescape false %}
+		{% for widget in widgets %}
+			{{ widget }}
+		{% endfor %}
+	{% endautoescape %}
+{% endblock %}

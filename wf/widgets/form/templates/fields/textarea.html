@@ -1,0 +1,7 @@
+<dt class="{{ field.name }}-term textarea-terms"><label for="{{ field.name }}-field">
+	{{ field.is_required ? '<span class="required">* </span>' : '' }}
+	{{ field.title }}:
+</label></dt>
+<dd class="{{ field.name }}-definition textarea-definitions">
+    <textarea id="{{ field.name }}-field" name="{{ field.name }}" cols="80" rows="4">{{ field.value }}</textarea>
+</dd>

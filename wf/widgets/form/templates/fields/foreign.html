@@ -1,0 +1,10 @@
+<tr>
+	<th scope="row">{$field.translation}:</th>
+	<td>
+		<select id="{$field.field}" name="{$field.field}">
+			{foreach from=$foreign key=num item=f}
+				<option value="{$f.id}" {if $f.c}checked="checked"{/if}>{$f.val}</option>
+			{/foreach}
+		</select>
+	</td>
+</tr>

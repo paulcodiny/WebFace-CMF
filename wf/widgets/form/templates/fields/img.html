@@ -1,0 +1,23 @@
+<dt class="{{ field.name }}-term image-terms"><label for="{{ field.name }}-field">
+	{{ field.is_required ? '<span class="required">* </span>' : ''}
+	{{ field.title }}:
+</label></dt>
+<dd class="{{ field.name }}-definition image-definitions">
+{% if field.value %}
+	<div class="image-wrap">
+		<div class="image-left">
+			<img src="{{ field.value|thumbnail 250 0}" alt="" />
+		</div>
+		<div class="image-right">
+			<ul>
+				<li><label><input type="radio" name="picture" value="site/assets/tmp/edit-picture.jpg" checked="checked" />Оставить</label></li>
+				<li><label><input type="radio" name="picture" value="" />Заменить на <input type="file" id="{{ field.name }}" name="{{ field.name }}" /></label></li>
+				{% if !field.required %}
+					<li><label><input type="radio" name="picture" value="delete_{{ field.name }}" />Удалить</label></li>
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+{% else %}
+	<input type="file" id="{{ field.name }}" name="{{ field.name }}" />
+{% endif %}

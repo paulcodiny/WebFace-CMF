@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru">
+
+<head>
+	
+	<base href="{$gconfig.site_url}" />
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Pragma" content="no-cache" />
+
+	<title>Администрирование Web2face</title>
+
+	<meta name="Distribution" content="Global" />
+	<meta name="author" content="paulcodiny - paulcodiny@gmail.com" />
+	<meta name="Robots" content="index,follow" />
+
+	<link type="image/x-icon" rel="shortcut icon" href="./favicon.gif"  />
+	<link type="text/css" rel="stylesheet" href="/wf/assets/css/main.css" />
+
+	<style type="text/css">
+		.page-list { list-style: none; margin: 0; padding: 0; display: block; text-align: left; clear: both; }
+		.page-item > div { background: #f8f8f8; margin: 0.25em 0 0 0; }
+		.sort-handle { cursor: move; }
+	</style>
+
+	<!--[if IE 6]>
+		<link type="text/css" rel="stylesheet" href="_assets/css/ie6.css" />
+	<![endif]-->
+
+	<!--[if IE 7]>
+		<link type="text/css" rel="stylesheet" href="_assets/css/ie7.css" />
+	<![endif]-->
+
+	<!--[if IE]>
+		<link type="text/css" rel="stylesheet" href="_assets/css/ie.css" />
+	<![endif]-->
+</head>
+
+<body id="body">
+	<div id="wrap">
+        <div id="header" class="clearfix">
+            {% block navigation %}
+				{% include 'wf_admin_menu.html' %}
+            {% endblock %}
+			<div class="picture">
+				<h1><a href="/admin/">Система Управления Контентом WebFace CMF. Администрирование сайта {$gconfig.site_title}</a></h1>
+			</div>
+			<div class="user">
+                {% block admin_info %}
+                    <div class="userinfo">
+                        <span class="name">{{ user_name }}</span>
+                        &mdash;
+                        <span class="group">администратор</span>
+                    </div>
+                    <div class="actions">
+                        <a href="/" class="return-to-site">Вернуться на сайт</a>
+                        &nbsp;
+                        <a href="/logout/" class="logout">Выйти</a>
+                    </div>
+				{% endblock %}
+			</div>
+		</div><!-- #header -->
+
+		<div id="success_msg" {{ success ? '' : 'style="display: none;"' }}>
+			{% if success == 'create' %}
+				<p>Добавлено</p>
+			{% elseif success == 'update' %}
+				<p>Отредактировано</p>
+			{% elseif success == 'delete' %}
+				<p>Удалено</p>
+			{% endif %}
+		</div>
+
+		<div id="loading" style="display: none;">
+			<p>Загрузка...</p>
+		</div>
+
+		{% block content %}
+            
+		{% endblock %}
+
+	</div><!-- #wrap -->
+
+    <div id="push"><!-- --></div>
+
+	<div id="footer">
+		<p id="site-author">Сайт разработан Киселёвым Павлом в 2011 году</p>
+		<p id="powered-by">Работает под управлением <a href="#">WebFace CMF</a></p>
+	</div>
+    
+</body>
+
+</html>

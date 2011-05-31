@@ -1,0 +1,69 @@
+{extends "base.html"}
+
+{block "main"}
+<div class="main">
+
+	<div class="left_col">
+
+		<div class="breadcrumbs clearfix">
+			<ul>
+				{for i $breadcrumbs}
+					{if $i == $breadcrumbs|length - 1}
+						<li><span>{$breadcrumbs[$i].name}</span></li>
+					{else}
+						<li><a href="{$breadcrumbs[$i].url}">{$breadcrumbs[$i].name}</a></li>
+					{/if}
+				{/for}
+			</ul>
+		</div>
+
+		<form action="admin/a_settings/e_update" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="action" value="e_update" />
+
+			<div class="main_block_wrap">
+				<div class="c tl"><!-- --></div>
+				<div class="c tr"><!-- --></div>
+				<div class="c bl"><!-- --></div>
+				<div class="c br"><!-- --></div>
+				<div class="c t"><!-- --></div>
+				<div class="c b"><!-- --></div>
+				<div class="c l"><!-- --></div>
+				<div class="c r"><!-- --></div>
+
+				<div class="main_block">
+					<table cellspacing="0" class="fields">
+						<tr>
+							<th scope="row">Название сайта:</th>
+							<td><input type="text" id="title" name="title" value="{$title}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">Ключевые слова:</th>
+							<td><input type="text" id="keywords" name="keywords" value="{$keywords}" /></td>
+						</tr>
+						<tr>
+							<th scope="row">Описание сайта:</th>
+							<td><input type="text" id="description" name="description" value="{$description}" /></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<div class="btns">
+				<input type="image" src="{$gconfig.media_backend}img/btns/save.png" value="Сохранить" />
+				<a href="#"><img src="{$gconfig.media_backend}img/btns/cancel.png" alt="Отменить" /></a>
+			</div>
+
+		</form>
+
+	</div>
+
+	<div class="right_col">
+
+		{include('_helpers.html')}
+
+		{include('_adv_block.html')}
+
+	</div>
+
+</div>
+{/block}

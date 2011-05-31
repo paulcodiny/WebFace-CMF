@@ -1,0 +1,7 @@
+<dt class="{{ field.name }}-term text-terms"><label for="{{ field.name }}-field">
+	{{ field.is_required ? '<span class="required">* </span>' : '' }}
+	{{ field.title }}:
+</label></dt>
+<dd class="{{ field.name }}-definition text-definitions">
+    <input type="text" id="{{ field.name }}-field" name="{{ field.name }}" value="{{ field.value }}" />
+</dd>

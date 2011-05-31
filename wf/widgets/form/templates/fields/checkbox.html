@@ -1,0 +1,8 @@
+<dt class="{{ field.name }}-term checkbox-terms"><label for="{{ field.name }}-field">
+	{if $field.required}<span class="required">* </span>{/if}
+	{$field.translation}:
+</label></dt>
+<dd class="{{ field.name }}-definition checkbox-definitions">
+    <input type="hidden" name="{{ field.name }}" value="0" />
+    <input type="checkbox" id="{{ field.name }}-field" name="{{ field.name }}" {{ field.value ? 'checked="checked"' : ''} value="1" />
+</dd>
